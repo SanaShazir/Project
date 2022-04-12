@@ -203,7 +203,7 @@ function validFormFieldInput()
          countOfError++;
      }
     if(countOfError== 0)
-        window.location.href = '/thankyou.html';
+        window.location.href = 'thankyou.html';
     // var tripType = document.getElementsByName('Trip Type');
     // var ischecked_method = false;
     // const radioButtons = document.querySelectorAll('input[name="Trip Type"]');
