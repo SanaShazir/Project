@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel='stylesheet' type='text/css' media="all">
+    
+</head>
+<body>
+    <div class="container">    
+        <form class="form" id="form">
+            <div class="header">
+                <h1> Flight Booking Form</h1>
+            </div><br/>
+
+            <div class="form-control">
+                <input type="radio" id="tripTypeChoice1" name ="Trip Type" value ="One Way" onchange="Checkradiobutton(this.value)">					 
+                <label for="tripTypeChoice1">One Way</label>
+                <input type="radio" id="tripTypeChoice2" name ="Trip Type" value ="Round Way" onchange="Checkradiobutton(this.value)">					
+                <label for="tripTypeChoice2">Two Way</label>
+                <div class ="error"></div>
+            </div><br/>
+            <div class="form-control">
+                <label for="sdate">Start Date:</label>
+                <input type="date" id="sdate" name="sdate">
+            </div><br/>
+            
+            <div id="RX" class="form-control" style="display:none">
+                <label for="rdate">Return Date:</label>
+                <input type="date" id="rdate" name="rdate" >
+            </div><br/>
+            <div class="form-control">
+                <label for="numofadults">Number of Adults</label>                
+                <select id="numofadults" name="numofadults" onchange='CheckPassengerList(this.value)'>  
+                    <option value="0">0</option>                 
+                    <option value="1">1</option>
+					<option value="2">2</option>
+                    <option value="3">3</option>		
+                </select>
+                
+            </div><br/>
+            <div id="ps1" name="numofadults" style="display:none;">
+                <input type="text" placeholder="Passenger1" id="pass1"">
+                <div class ="error"></div>
+                <input type="radio" id="male" name ="Gender" value ="Male"">					
+                <label for="male">Male</label>
+                <input type="radio" id="female" name ="Gender" value ="Female"">					
+                <label for="female">Female</label>
+                <div class="form-control">
+                    <label for="age">Age</label>
+                    <input type="number" placeholder="Age" id="age" min="1">                
+                    <!-- <div class ="error"></div> -->
+                </div><br/>
+                
+            </div>
+            <div id="ps2" name="numofadults" style="display:none;">
+                <input type="text" placeholder="Passenger2" id="pass2"">
+                <div class ="error"></div>
+                <input type="radio" id="male2" name ="Gender2" value ="Male">					
+                <label for="male2">Male</label>
+                <input type="radio" id="female2" name ="Gender2" value ="Female">					
+                <label for="female2">Female</label>
+                <div class="form-control">
+                    <label for="age">Age</label>
+                    <input type="number" placeholder="Age" id="age" min="1">                
+                    <!-- <div class ="error"></div> -->
+                </div><br/>
+            </div>
+            <div id="ps3" name="numofadults" style="display:none;">
+                <input type="text" placeholder="Passenger3" id="pass3"">
+                <div class ="error"></div>
+                <input type="radio" id="male3" name ="Gender3" value ="Male">					
+                <label for="male3">Male</label>
+                <input type="radio" id="female3" name ="Gender3" value ="Female">					
+                <label for="female3">Female</label>
+                <div class="form-control">
+                    <label for="age2">Age</label>
+                    <input type="number" placeholder="Age2" id="age2" min="1">                
+                    <!-- <div class ="error"></div> -->
+                </div><br/>
+            </div>
+          
+            <!-- <input type="text" placeholder="Passenger2" id="pass2" style="display:none;">
+            <input type="radio" id="male2" name ="Gender2" value ="Male" class="hidden">					
+            <label for="male2" class="hidden">Male</label>
+            <input type="radio" id="female2" name ="Gender2" value ="Female" class="hidden">					
+            <label for="female2" class="hidden">Female</label> -->
+            <div class="form-control">
+                <label for="numofchildren">Number of Children</label>                
+                <select id="numofchildren" name="numofchildren"  onchange='CheckChildList(this.value)'>
+                    <option value="0">0</option>                   
+                    <option value="1">1</option>
+					<option value="2">2</option>		
+                </select>
+            </div><br/>
+                
+            <div id="c1" name="numofchildren" style="display:none;">
+                <input type="text" placeholder="Child1" id="child1"">
+                <div class ="error"></div>
+                <input type="radio" id="male4" name ="Gender" value ="Male"">					
+                <label for="male4">Male</label>
+                <input type="radio" id="female4" name ="Gender" value ="Female"">					
+                <label for="female4">Female</label>
+                <div class="form-control">
+                    <label for="age4">Age</label>
+                    <input type="number" placeholder="Age" id="age4" min="0" max="16">        
+                </div><br/>
+                
+            </div>
+            <div id="c2" name="numofchildren" style="display:none;">
+                <input type="text" placeholder="Child2" id="child2"">
+                <div class ="error"></div>
+                <input type="radio" id="male5" name ="Gender" value ="Male">					
+                <label for="male5">Male</label>
+                <input type="radio" id="female5" name ="Gender" value ="Female">					
+                <label for="female5">Female</label>
+                <div class="form-control">
+                    <label for="age5">Age</label>
+                    <input type="number" placeholder="Age" id="age5" min="0" max="16">                
+                    <!-- <div class ="error"></div> -->
+                </div><br/>
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="email" placeholder="email" id="email">
+                <div class ="error"></div>
+            </div><br/>
+            <div class="form-control">
+                <label>PhoneNumber</label>
+                <input type="tel" placeholder="Phone Number" id="phonenumber">
+                <div class ="error"></div>
+            </div><br/>
+
+            <div class="form-control">
+                <label>Departure Country</label>
+                <input type="text" placeholder="Departure Country" id="departurecountry">
+                <div class ="error"></div>
+            </div><br/>
+
+            <div class="form-control">
+                <label>Destination Country</label>
+                <input type="text" placeholder="Destination Country" id="destinationcountry">
+                <div class ="error"></div>
+            </div><br/>
+
+            <div class="form-control">
+                <label>Address</label>
+                <input type="textrich" placeholder="Address" id="address">
+                
+            </div><br/>
+
+            <div class="form-control">
+                <label for="foodtype">Food Type: </label>
+                <select id="foodtype" name="foodtype">
+                   
+                    <option value="veg">Veg</option>
+					<option value="non Veg">Non Veg</option>		
+                </select>
+            </div><br/>
+            
+            <div class="form-control">
+                <label for="paymentMethod">Payment Method </label>
+                <select id="paymentMethod" name="paymentMethod">
+                    <option value="xy">Select</option>
+                    <option value="debit">Debit Card</option>
+					<option value="credit">Credit Card</option>		
+                    <option value="paypal">Paypal</option>	
+                </select>
+                <div class ="error"></div>
+            </div><br/>
+            <button type="submit" id="submit">Submit</button>
+            <script type="text/javascript" src="index.js"></script>            
+        </form>
+    </div>
+
+    
+</body>
+</html>
